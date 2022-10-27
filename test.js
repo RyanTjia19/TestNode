@@ -37,7 +37,7 @@ app.get('/info/:data', function(req, res) {
 	var logic = req.params['data'];
 
 	if (logic == '1') {
-		res.send('<h1>Since the parameter is "1", then you get this page</h1>');
+		res.send(`<h1>Since the parameter is "${logic}", then you get this page</h1>`);
 	}
 
 	else {
