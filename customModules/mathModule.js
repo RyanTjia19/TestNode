@@ -3,11 +3,16 @@ var circleArea = function(radius) {
 	return Math.pow(radius, 2) * Math.PI;
 }
 
-//Exports a single function each time
-exports.circle_Area = circleArea;
-
 //Export as a json object
 module.exports = {
+	circlePerimeter: (radius) => {
+		return 2 * radius * Math.PI;
+	},
+
+	circleArea : (radius) => {
+		return Math.pow(radius, 2) * Math.PI;
+	},
+
 	boxVolume : (length, width, height) => {
 		return length * width * height;
 	}

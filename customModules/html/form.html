@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Math Stuff</title>
+
+	<style>
+		div {
+			padding: 10px 0px;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Math Stuff</h1>
+
+	<div>
+		Area of a circle
+		<form action="/external/areaCircle" method="post">
+			<label for="Radius">Radius:</label>
+			<input type="number" id="Radius" name="radius">
+			<button type="submit" name="submit">
+				Calculate
+			</button>
+		</form>
+	</div>
+
+	<div>
+		Perimeter of a circle
+		<form action="/external/perimeterCircle" method="post">
+			<label for="Radius">Radius:</label>
+			<input type="number" id="Radius" name="radius">
+			<button type="submit" name="submit">
+				Calculate
+			</button>
+		</form>
+	</div>
+
+	<div>
+		Volume of a box
+		<form action="/external/volumeBox" method="post">
+			<label for="Length">Length:</label>
+			<input type="number" id="Length" name="length">
+			<label for="Width">Width:</label>
+			<input type="number" id="Width" name="width">
+			<label for="Height">Height:</label>
+			<input type="number" id="Height" name="height">
+			<button type="submit" name="submit">
+				Calculate
+			</button>
+		</form>
+	</div>
+
+	<div>
+		<a href="/pic/Frog.png">Frog</a>
+	</div>
+</body>
+
+</html>
