@@ -8,7 +8,7 @@ const math = require('./mathModule.js');
 
 //Register some routes to the router object
 router.get('/', function (req, res) {
-	res.sendFile(__dirname + '/html/form.html');
+	res.sendFile(__dirname + '/html/mathForm.html');
 });
 
 router.get('/moduleTest', function (req, res) {
@@ -17,24 +17,44 @@ router.get('/moduleTest', function (req, res) {
 
 //These will get data from user's input
 router.post('/areaCircle', (req, res) => {
-	var radius = req.body.radius;
-	var area = math.circleArea(radius);
-	res.send(`<h1>An area of a circle</h1><p>Given a circle with a radius of ${radius}, it will have an area of</p><p>${area}</p><a href="/external">Back</a>`);
+	const model = {
+		problem : "An area",
+		shape : "circle",
+		dimensions : {
+			radius : req.body.radius
+		},
+		result : math.circleArea(req.body.radius)
+	}
+
+	res.render('mathResult', model);
 });
 
 router.post('/perimeterCircle', (req, res) => {
-	var radius = req.body.radius;
-	var perimeter = math.circlePerimeter(radius);
-	res.send(`<h1>The perimeter of a circle</h1><p>Given a circle with a radius of ${radius}, it will have a perimeter of</p><p>${perimeter}</p><a href="/external">Back</a>`);
+	const model = {
+		problem : "The perimeter",
+		shape : "circle",
+		dimensions : {
+			radius : req.body.radius
+		},
+		result : math.circlePerimeter(req.body.radius)
+	}
+
+	res.render('mathResult', model);
 });
 
 router.post('/volumeBox', (req, res) => {
-	var length = req.body.length;
-	var width = req.body.width;
-	var height = req.body.height;
-	var volume = math.boxVolume(length, width, height);
+	const model = {
+		problem : "The volume",
+		shape: "box",
+		dimensions : {
+			length : req.body.length,
+			width : req.body.width,
+			height : req.body.height
+		},
+		result : math.boxVolume(req.body.length, req.body.width, req.body.height)
+	}
 
-	res.send(`<h1>The volume of a rectangular prism</h1><p>Given a rectangular prism with a length of ${length}, width of ${width}, and height of ${height}, it will have a volume of</p><p>${volume}</p><a href="/external">Back</a>`);
+	res.render('mathResult', model);
 });
 
 // Exports the router object

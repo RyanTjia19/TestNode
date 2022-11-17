@@ -12,6 +12,12 @@ app.use(express.urlencoded({extended: true}));
 //Node treats every file as a module
 var mathRoutes = require('./customModules/mathRoutes.js');
 
+//Uses the 'pug' library to use html templates, must set 'views' and 'view engine'
+//Must download 'pug' library first
+//npm install pug
+app.set('views', './customModules/html');
+app.set('view engine', 'pug');
+
 //Defines a route, 'req' or first parameter is request, 'res' or second parameter is response
 //Url is "localhost:3000"
 app.get('/', function(req, res) {
@@ -21,17 +27,17 @@ app.get('/', function(req, res) {
 //Url is "localhost:3000/sample1"
 app.get('/sample1', function(req, res) {
 	res.send('<h1>This is the second route</h1>')
-})
+});
 
 //Url is "localhost:3000/json"
 app.get('/json', function(req, res) {
 	let data = {
 		fname: "Bob",
 		lname: "Son"
-	}
+	};
 
 	res.json(data);
-})
+});
 
 //Url is "localhost:3000/info/data"
 //Where 'data' is the parameter to determine different
@@ -48,8 +54,8 @@ app.get('/info/:data', function(req, res) {
 
 	else {
 		res.send('<h1>If the parameter is not "1", then you shall get this page</h1>');
-	}
-})
+	};
+});
 
 //Using the routes from the external file
 app.use('/external', mathRoutes);

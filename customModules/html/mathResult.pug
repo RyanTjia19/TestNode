@@ -1,0 +1,13 @@
+doctype html
+html
+	head
+		title Result
+
+	body
+		h1 #{problem} of a #{shape}
+		p Given
+		each value, side in dimensions
+			li(style='list-style-type: none;') #{side} = #{value}
+		p It will be #{result}
+
+		a(href="/external") Back
