@@ -18,41 +18,47 @@ router.get('/moduleTest', function (req, res) {
 
 //These will get data from user's input
 router.post('/areaCircle', (req, res) => {
+	const {radius} = req.body;
+
 	const model = {
 		problem : "An area",
 		shape : "circle",
 		dimensions : {
-			radius : req.body.radius
+			radius : radius
 		},
-		result : math.circleArea(req.body.radius)
+		result : math.circleArea(radius)
 	}
 
 	res.render('mathResult', model);
 });
 
 router.post('/perimeterCircle', (req, res) => {
+	const {radius} = req.body;
+
 	const model = {
 		problem : "The perimeter",
 		shape : "circle",
 		dimensions : {
-			radius : req.body.radius
+			radius : radius
 		},
-		result : math.circlePerimeter(req.body.radius)
+		result : math.circlePerimeter(radius)
 	}
 
 	res.render('mathResult', model);
 });
 
 router.post('/volumeBox', (req, res) => {
+	const {length, width, height} = req.body;
+
 	const model = {
 		problem : "The volume",
 		shape: "box",
 		dimensions : {
-			length : req.body.length,
-			width : req.body.width,
-			height : req.body.height
+			length : length,
+			width : width,
+			height : height
 		},
-		result : math.boxVolume(req.body.length, req.body.width, req.body.height)
+		result : math.boxVolume(length, width, height)
 	}
 
 	res.render('mathResult', model);
