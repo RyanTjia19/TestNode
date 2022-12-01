@@ -8,7 +8,8 @@ const math = require('./mathModule.js');
 
 //Register some routes to the router object
 router.get('/', function (req, res) {
-	res.sendFile(__dirname + '/html/mathForm.html');
+	//res.sendFile(__dirname + '/html/mathForm.html');
+	res.render('mathForm');
 });
 
 router.get('/moduleTest', function (req, res) {

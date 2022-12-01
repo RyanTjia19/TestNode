@@ -1,0 +1,35 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		title Result
+
+		link(rel='stylesheet', href='/css/simple.css')
+
+	body
+		h1 Math Stuff
+
+		div Area of a circle
+			form(role='form' action='/external/areaCircle' method='POST')
+				label(for='Radius') Radius:
+				input(type='number' id='Radius' name='radius')
+				button(type='submit' name='submit') Calculate
+
+		div Perimeter of a circle
+			form(role='form' action='/external/perimeterCircle' method='POST')
+				label(for='Radius') Radius:
+				input(type='number' id='Radius' name='radius')
+				button(type='submit' name='submit') Calculate
+
+		div Volume of a box
+			form(role='form' action='/external/volumeBox' method='POST')
+				label(for='Length') Length:
+				input(type='number' id='Length' name='length')
+				label(for='Width') Width:
+				input(type='number' id='Width' name='width')
+				label(for='Height') Height:
+				input(type='number' id='Height' name='height')
+				button(type='submit' name='submit') Calculate
+
+		div
+			a(href='/pic/Frog.png') Frog

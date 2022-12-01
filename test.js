@@ -60,6 +60,9 @@ app.get('/info/:data', function(req, res) {
 //Using the routes from the external file
 app.use('/external', mathRoutes);
 
+//Using the css from the external file
+app.use('/css', express.static('./customModules/css'));
+
 //Using static resources from the subfolder 'images'
 app.use('/pic', express.static('./customModules/images'));
 
